@@ -1,0 +1,41 @@
+<div class="container mar bg">
+    <div class="row ">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <form class="form-container" (ngSubmit)= "onSubmit()" #f="ngForm">
+                <h2>Login Form</h2>
+                <div class="form-group">
+                    <label for="inputEmail3" >Email</label>
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ngModel name="email"
+                    required email #Email="ngModel">
+                    <span class="help-block" *ngIf="!Email.valid&&Email.touched">*Email cannot be empty or invalid</span>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="control-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ngModel name="password" 
+                    required #Pass="ngModel">
+                    <span class="help-block" *ngIf="!Pass.valid&&Pass.touched">*Required Password</span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                </div>   
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block" [disabled]="!f.valid">Sign in</button>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block" (click)="signupRequest()" >Sign up </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+
+        <!--col-sm-6-->
+    </div>
+    <!--row-->
+</div>
+<!--container-->
+
