@@ -6,22 +6,31 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { Routes, RouterModule } from '@angular/router';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
+import {HomeComponent} from './home/home.component'
+import {HttpClientModule} from '@angular/common/http'
 const appRoutes : Routes = [
-  {path: "" , component: SigninComponent},
+  { path: "" , component: HomeComponent},
+  { path: "dashboard" , component: DashboardComponent},
+  { path: "signin" , component: SigninComponent},
   { path: "signup" , component: SignupComponent }
-]
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
