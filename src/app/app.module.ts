@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import {HomeComponent} from './home/home.component'
 import {HttpClientModule} from '@angular/common/http'
+import {DropDownDirective} from './shared/dropdown.directive'
 const appRoutes : Routes = [
   { path: "" , component: HomeComponent},
   { path: "dashboard" , component: DashboardComponent},
@@ -24,7 +25,8 @@ const appRoutes : Routes = [
     SignupComponent,
     DashboardComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,
