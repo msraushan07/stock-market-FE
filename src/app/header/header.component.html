@@ -10,7 +10,13 @@
               <li><a routerLink="/dashboard">Dashboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <li><a routerLink="signin">Sign in</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" role="button">Account <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/signin">Sign in</a></li>
+                <li><a routerLink="/signup">Sign up</a></li>
+              </ul>
+            </li>
           </ul>
       </div>
     </div>

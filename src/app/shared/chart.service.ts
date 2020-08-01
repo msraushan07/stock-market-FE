@@ -16,7 +16,8 @@ export class ChartService {
         this.chart = new Chart('chart-1', {
           type: 'line',
           data: {
-              labels: date,
+              labels: date ,
+              // ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'],
               datasets: [{
                   label: 'open value',
                   data: open,
@@ -29,15 +30,33 @@ export class ChartService {
                     borderColor: '#ffcc00',
                     fill: false
                 },
+                {
+                  label: 'high value',
+                  data: high,
+                  borderColor: '#FF6347',
+                  fill: false
+              },
+              {
+                label: 'low value',
+                data: low,
+                borderColor: 'FFD700',
+                fill: false
+            },
             ]
           },
           options: {
               scales: {
                 xAxes: [{
-                  display: true
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                  }
           }],
                   yAxes: [{
-                          display: true
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Value'
+                    }
                   }]
                   
               }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from '../shared/stock.service';
 import { ChartService } from '../shared/chart.service';
+import {NgForm} from '@angular/forms'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
