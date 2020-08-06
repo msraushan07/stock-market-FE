@@ -15,4 +15,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   this.chartService.chartCreation();
  }
+
+  storeStock(){
+    
+  }
 }

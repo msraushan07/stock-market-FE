@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import {HomeComponent} from './home/home.component'
 import {HttpClientModule} from '@angular/common/http'
 import {DropDownDirective} from './shared/dropdown.directive'
+import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component'
+
 const appRoutes : Routes = [
   { path: "" , component: HomeComponent},
   { path: "dashboard" , component: DashboardComponent},
@@ -26,7 +28,8 @@ const appRoutes : Routes = [
     DashboardComponent,
     HeaderComponent,
     HomeComponent,
-    DropDownDirective
+    DropDownDirective,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
