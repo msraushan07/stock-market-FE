@@ -7,7 +7,7 @@ import { AuthService } from '../shared/auth.service'
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
-  providers: [AuthService]
+  providers: []
 })
 export class SigninComponent implements OnInit {
    error = null
@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
       this.isloading = false
     }, 
     error => { 
-      this.error=error.error.text
+      console.log(error) //=error.error.text
       this.isloading = false
     })
   }

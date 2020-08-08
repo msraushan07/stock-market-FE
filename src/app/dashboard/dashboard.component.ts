@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StockService } from '../shared/stock.service';
 import { ChartService } from '../shared/chart.service';
 import {NgForm} from '@angular/forms'
@@ -9,14 +9,37 @@ import {NgForm} from '@angular/forms'
   providers:[StockService,ChartService]
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(private chartService: ChartService) { }
-
+  stock = false
+  stockCount
+  constructor(private chartService: ChartService, private stockService:StockService) { }
+ @ViewChild('f') Stockvalue : NgForm
   ngOnInit(): void {
   this.chartService.chartCreation();
  }
 
-  storeStock(){
-    
-  }
+  buyStock(){
+    this.stockService.addStock(this.Stockvalue.value.stock)
+    .subscribe(res => {
+      console.log(res)
+    },(error) => {
+      console.log(error)
+  })
+}
+  sellStock(){
+    this.stockService.deleteStock(this.Stockvalue.value.stock)
+    .subscribe(res => {
+      console.log(res)
+  },(error) => {
+    console.log(error)
+  })
+}
+  showStock(){
+    this.stockService.viewStock().subscribe(res => {
+      console.log(res)
+      this.stock=true
+      this.stockCount = res
+     },(error) => {
+      console.log(error)
+     })
+   }
 }

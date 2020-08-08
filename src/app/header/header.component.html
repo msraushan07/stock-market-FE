@@ -7,11 +7,11 @@
       <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
               <li><a routerLink="/">Home</a></li>
-              <li><a routerLink="/dashboard" *ngIf="isAuthenticated">Dashboard</a></li>
+              <li><a routerLink="/dashboard"  >Dashboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a style="cursor:pointer;" *ngIf="isAuthenticated">Sign Out</a>
+            <li *ngIf="isAuthenticated">
+              <a style="cursor:pointer;" (click)="onSignout()"> Sign Out</a>
             </li>
             <li class="dropdown" appDropdown> 
               <a class="dropdown-toggle" role="button" *ngIf="!isAuthenticated">Account <span class="caret"></span></a>

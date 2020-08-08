@@ -9,10 +9,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import {HomeComponent} from './home/home.component'
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule,  HTTP_INTERCEPTORS} from '@angular/common/http'
 import {DropDownDirective} from './shared/dropdown.directive'
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component'
-
+import {AuthService} from './shared/auth.service'
+import { AuthInterceptor } from './shared/auth-interceptor.service'
 const appRoutes : Routes = [
   { path: "" , component: HomeComponent},
   { path: "dashboard" , component: DashboardComponent},
@@ -38,7 +39,7 @@ const appRoutes : Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthService,{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

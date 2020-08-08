@@ -2,15 +2,20 @@
 <div class="jumbotron">
     <div class="container">
         <div class="row">
-            <form class="form-inline ">
+            <form class="form-inline"  #f="ngForm">
                 <div class="form-group col-md-offset-3 ">
-                <input type="number" ngModel name="stock-value"> 
+                <input type="number" ngModel name="stock"> 
             </div>
-                <span class="glyphicon glyphicon-circle-arrow-right"></span> <button class="btn btn-success btn-sm "> Buy Stock</button> |
-                <button class="btn btn-danger btn-sm"> Sell Stock</button> |
+                <span class="glyphicon glyphicon-circle-arrow-right"></span> 
+                <button type="submit" (click)="buyStock()" class="btn btn-success btn-sm" [disabled]="!f.valid"> 
+                 Buy Stock</button> |
+                <button type="submit" (click)="sellStock()" class="btn btn-danger btn-sm"
+                 [disabled]="!f.valid">
+                  Sell Stock</button> |
                 <strong style="text-align: center;">Want to view Stock</strong>  --
-    <span class="glyphicon glyphicon-hand-right"><span> </span></span> |
-    <button class="btn btn-danger"> Click Here</button>
+                <span class="glyphicon glyphicon-hand-right"><span> </span></span> |
+                <button  (click)="showStock()" class="btn btn-danger">
+                 Click Here</button>
             </form>
         </div>
     </div>
@@ -18,10 +23,10 @@
 <hr>
 
 
-<div class="panel panel-default" *ngIf="false">
+<div class="panel panel-default" *ngIf="stock">
     <div class="panel-heading">Stocks left in your account</div>
     <div class="panel-body">
-      Stock content
+      <strong>{{stockCount}}</strong>
     </div>
   </div>
 

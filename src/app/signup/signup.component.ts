@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-  providers: [AuthService]
+  providers: []
 })
 export class SignupComponent implements OnInit {
   isloading = false
@@ -32,7 +32,6 @@ export class SignupComponent implements OnInit {
         this.Route.navigate(['dashboard'])
         this.isloading = false
       }, error =>{
-        this.error=error.error.text
         console.log(error)
         this.isloading = false
       })
