@@ -35,9 +35,8 @@ export class DashboardComponent implements OnInit {
 }
   showStock(){
     this.stockService.viewStock().subscribe(res => {
-      console.log(res)
       this.stock=true
-      this.stockCount = res
+      this.stockCount= res
      },(error) => {
       console.log(error)
      })

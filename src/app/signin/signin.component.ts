@@ -31,7 +31,6 @@ export class SigninComponent implements OnInit {
     this.authService.onSignin(email,password).subscribe(
     res => {
       this.Route.navigate(['dashboard'])
-      console.log("onSubmit",res)
       this.isloading = false
     }, 
     error => { 
