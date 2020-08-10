@@ -10,6 +10,8 @@ import {NgForm} from '@angular/forms'
 })
 export class DashboardComponent implements OnInit {
   stock = false
+  error:string = null
+  msg: string = null
   stockCount
   constructor(private chartService: ChartService, private stockService:StockService) { }
  @ViewChild('f') Stockvalue : NgForm
@@ -20,7 +22,7 @@ export class DashboardComponent implements OnInit {
   buyStock(){
     this.stockService.addStock(this.Stockvalue.value.stock)
     .subscribe(res => {
-      console.log(res)
+      alert(`${this.Stockvalue.value.stock}:stock added successfully`)
     },(error) => {
       console.log(error)
   })
@@ -28,9 +30,9 @@ export class DashboardComponent implements OnInit {
   sellStock(){
     this.stockService.deleteStock(this.Stockvalue.value.stock)
     .subscribe(res => {
-      console.log(res)
+      alert(`${this.Stockvalue.value.stock}:stock sold successfully`)
   },(error) => {
-    console.log(error)
+     this.error=error.error.text
   })
 }
   showStock(){
@@ -38,7 +40,7 @@ export class DashboardComponent implements OnInit {
       this.stock=true
       this.stockCount= res
      },(error) => {
-      console.log(error)
+      this.error=error.error.text
      })
    }
 }
