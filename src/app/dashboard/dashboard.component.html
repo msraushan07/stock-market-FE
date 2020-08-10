@@ -1,6 +1,6 @@
 <app-header></app-header>
-<div class="jumbotron">
-    <div class="container">
+<div class="jumbotron" style="background-color: azure;">
+    <div class="container bg">
         <div class="row">
             <form class="form-inline"  #f="ngForm">
                 <div class="form-group col-md-offset-3 ">
@@ -23,19 +23,20 @@
 <hr>
 
 
-<div class="panel panel-default" *ngIf="stock">
+<div class="panel panel-default " style="background-color: darkorchid;" *ngIf="stock">
     <div class="panel-heading">Stocks left in your account</div>
     <div class="panel-body">
       <strong>{{stockCount}}</strong>
     </div>
   </div>
 
-  <div class="col-md-offset-3" >
-    <h2><strong style="text-align: center;">Graph below shows the latest Stock Stats</strong> </h2> 
+  <div class="col-md-offset-3"  >
+    <h2><strong style="text-align: center;" style="text-transform: uppercase;"
+        >Graph below shows the latest Stock Stats</strong> </h2> 
 </div>
 <hr>
     
-<div class="container">
+<div class="container size">
     <canvas id="chart-1"></canvas>
 </div>
 

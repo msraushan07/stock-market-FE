@@ -1,0 +1,13 @@
+
+.bg{
+    background:url('../shared/img/12-121493_panda-wallpaper-hd-best-background-wallpaper-hd.jpg') no-repeat;
+    width: 100%;
+    height: 85vh;
+}
+.rw{
+    height: 50vh;
+    border: 1px solid white;
+}
+.c{
+    border: 1px solid white;
+}

@@ -10,8 +10,8 @@ import { AuthService } from '../shared/auth.service'
   providers: []
 })
 export class SigninComponent implements OnInit {
-   error = null
-   isloading = false
+  error:string = null
+  isloading = false
   @ViewChild('f') signinForm : NgForm
   constructor(private Route: Router, private authService:AuthService) { 
   }
@@ -34,7 +34,7 @@ export class SigninComponent implements OnInit {
       this.isloading = false
     }, 
     error => { 
-      console.log(error) //=error.error.text
+      this.error=error.error.text
       this.isloading = false
     })
   }

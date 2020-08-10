@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   isloading = false
   @ViewChild('f') signupForm: NgForm
   constructor(private authService:AuthService, private Route:Router) { }
-  error = null;
+  error:string = null;
   ngOnInit(): void {
   }
   onSubmit(){
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
         this.Route.navigate(['dashboard'])
         this.isloading = false
       }, error =>{
-        console.log(error)
+        this.error=error.error.text
         this.isloading = false
       })
   }

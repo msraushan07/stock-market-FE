@@ -47,12 +47,18 @@ export class ChartService {
           options: {
               scales: {
                 xAxes: [{
+                  gridLines:{
+                    display:false
+                  },
                   scaleLabel: {
                     display: true,
                     labelString: 'Month'
                   }
           }],
                   yAxes: [{
+                    gridLines:{
+                      display:false
+                    },
                     scaleLabel: {
                       display: true,
                       labelString: 'Value'
