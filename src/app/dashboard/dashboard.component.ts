@@ -8,15 +8,23 @@ import {NgForm} from '@angular/forms'
   styleUrls: ['./dashboard.component.css'],
   providers:[StockService,ChartService]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent  {
+  symbol=''
+  dataset = [{Company:"Micrsoft",Symbol:"MSFT"},
+            {Company:"Apple",Symbol:"AAPL"},
+            {Company:"Google",Symbol:"GOOG"},
+            {Company:"IBM",Symbol:"IBM"},
+            {Company:"Amazon",Symbol:"AMZN"}];
   stock = false
   error:string = null
   msg: string = null
   stockCount
   constructor(private chartService: ChartService, private stockService:StockService) { }
  @ViewChild('f') Stockvalue : NgForm
-  ngOnInit(): void {
-  this.chartService.chartCreation();
+ @ViewChild('n') Symbolvalue : NgForm
+  graph() {
+    let sym=this.Symbolvalue.value.symbol
+  this.chartService.chartCreation(sym);
  }
 
   buyStock(){

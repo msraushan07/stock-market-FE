@@ -5,9 +5,9 @@ import { Chart } from 'chart.js'
 export class ChartService {
   chart = []
   constructor( private stockService: StockService ) { }
-  chartCreation(){
+  chartCreation(sym){
       
-      this.stockService.getStock().subscribe(res => {
+      this.stockService.getStock(sym).subscribe(res => {
          let date = Object.keys(res['Monthly Time Series'])
          let open = Object.values(res['Monthly Time Series']).map(res => res["1. open"])
          let high = Object.values(res['Monthly Time Series']).map(res => res["2. high"])

@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class AuthService{
     constructor(private _http: HttpClient,private route: Router){}
     user = new BehaviorSubject<User>(null)
-
     private handleauthentication(id:string,name:string,email:string,token:string){
         const user1 = new User(id,name,email,token)
         this.user.next(user1)  

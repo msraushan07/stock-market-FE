@@ -13,7 +13,8 @@ import {HttpClientModule,  HTTP_INTERCEPTORS} from '@angular/common/http'
 import {DropDownDirective} from './shared/dropdown.directive'
 import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component'
 import {AuthService} from './shared/auth.service'
-import { AuthInterceptor } from './shared/auth-interceptor.service'
+import { AuthInterceptor } from './shared/auth-interceptor.service';
+import { FilterPipe } from './shared/filter.pipe'
 const appRoutes : Routes = [
   { path: "" , component: HomeComponent},
   { path: "dashboard" , component: DashboardComponent},
@@ -30,7 +31,8 @@ const appRoutes : Routes = [
     HeaderComponent,
     HomeComponent,
     DropDownDirective,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

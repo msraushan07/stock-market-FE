@@ -18,7 +18,7 @@ export class StockService {
     return this.http.get('http://localhost:3000/viewStock')
   }
 
-  getStock(){
-      return this.http.get('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=demo')
+  getStock(sym){
+      return this.http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${sym}&apikey=RHTHJO8IVQUQGWFN`)
   }
 }

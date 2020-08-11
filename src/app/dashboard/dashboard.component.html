@@ -1,9 +1,10 @@
 <app-header></app-header>
+
 <div class="jumbotron" style="background-color: azure;">
     <div class="container bg">
         <div class="row">
             <form class="form-inline"  #f="ngForm">
-                <div class="form-group col-md-offset-3 ">
+                <div class="form-group col-md-offset-3 ">                
                 <input type="number" ngModel name="stock"> 
             </div>
                 <span class="glyphicon glyphicon-circle-arrow-right"></span> 
@@ -23,6 +24,7 @@
 <hr>
 
 
+
 <div class="panel panel-default " style="background-color: darkorchid;" *ngIf="stock">
     <div class="panel-heading">Stocks left in your account</div>
     <div class="panel-body">
@@ -31,12 +33,20 @@
   </div>
 
   <div class="col-md-offset-3"  >
-    <h2><strong style="text-align: center;" style="text-transform: uppercase;"
-        >Graph below shows the latest Stock Stats</strong> </h2> 
+    <h4><strong  style="text-transform: uppercase;"
+        >Search below to See the latest Stock Stats</strong> </h4> 
+        <form class="form-inline md-form mr-auto mb-4" #n="ngForm">
+            <input class="form-control col-md-3" type="text" placeholder="Search" aria-label="Search" ngModel name="symbol">
+            <button class="btn btn-success btn-large" (click)="graph()" type="submit">Search</button>
+          </form>
 </div>
 <hr>
+
+<ul *ngFor="let data of dataset | filter:symbol " >
+    <li> {{data.Company}} | {{data.Symbol}} </li>
+</ul>
     
-<div class="container size">
+<div class="chart-container" style=" height:40vh;">
     <canvas id="chart-1"></canvas>
 </div>
 
