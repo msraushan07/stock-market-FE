@@ -25,14 +25,7 @@
 
 
 
-<div class="panel panel-default " style="background-color: darkorchid;" *ngIf="stock">
-    <div class="panel-heading">Stocks left in your account</div>
-    <div class="panel-body">
-      <strong>{{stockCount}}</strong>
-    </div>
-  </div>
-
-  <div class="col-md-offset-3"  >
+  <div class="col-md-offset-4"  >
     <h4><strong  style="text-transform: uppercase;"
         >Search below to See the latest Stock Stats</strong> </h4> 
         <form class="form-inline md-form mr-auto mb-4" #n="ngForm">
@@ -42,9 +35,21 @@
 </div>
 <hr>
 
-<ul *ngFor="let data of dataset | filter:symbol " >
-    <li> {{data.Company}} | {{data.Symbol}} </li>
-</ul>
+<div class="grid-container"> 
+  <div class="grid-item-1">
+        <ul *ngFor="let data of dataset | filter:symbol " >
+        <li> {{data.Company}} | {{data.Symbol}} </li>
+        </ul>
+    </div>
+    <div class="grid-item-2" *ngIf="stock">
+       <strong>Stocks in your Account : ${{stockCount}}</strong>
+    </div>
+    <div class="grid-item-3">
+       
+    </div>
+
+</div>
+
     
 <div class="chart-container" style=" height:40vh;">
     <canvas id="chart-1"></canvas>

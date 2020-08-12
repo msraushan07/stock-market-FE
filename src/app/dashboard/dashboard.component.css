@@ -1,3 +1,29 @@
 .bg{
    
 }
+
+.grid-container{
+    display:grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    justify-content: start;
+    grid-gap: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background: aqua;
+    padding: 20px;
+}
+.grid-item-1{
+    grid-column-start: 2;
+     grid-column-end: 3;
+   background: yellow;
+}
+.grid-item-2{
+     grid-column-start: 3;
+     grid-column-end: 4;
+    background: pink;
+}
+
+.grid-item-3{
+    
+}
+
